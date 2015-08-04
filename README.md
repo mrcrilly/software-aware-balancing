@@ -10,13 +10,17 @@ You have a remote API which serves up nothing but its instance name - it's clear
 
 ### Load Balancer
 
+```
 HAProxy -> [API, API, ...]
+```
 
 The problem with this approach is HAProxy is a single point of failure - if it goes down, nothing is available.
 
 ### Two Load Balancers
 
+```
 [HAProxy | HAProxy] -> [API, API, API, ...]
+```
 
 (I'm making up syntax/symbols as I go along here; "," means each item is independant; "|" means the items on each side are dependent on each other, like in a cluster)
 
@@ -24,7 +28,9 @@ Much better, but this means you need to cluster the HAProxy instances and have a
 
 ### Two Load Balancers, No Cluster
 
+```
 [HAProxy, HAProxy] -> [API, API, API, ...]
+```
 
 Now we have two HAProxy instances which can LB requests between our pool of API servers. The problem here, however, is you now have two public IPs (and thus two public DNS records) for each HAProxy instance, but the clients talking to the API are probably only configured to talk to one... well that's the problem.
 
@@ -113,7 +119,7 @@ Using endpoint: Remote API 01
 Response Message (Result): This is API: API01 (true)
 ```
 
-And if we turn "off" API01?
+And if we turn "off" `API01`?
 
 ```
 $ curl localhost:8081/health/flip
