@@ -1,0 +1,5 @@
+{
+  "BindIP": "0.0.0.0",
+  "BindPort": "8081",
+  "APIName": "API01"
+}

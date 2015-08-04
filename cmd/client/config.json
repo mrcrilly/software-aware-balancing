@@ -1,0 +1,14 @@
+{
+  "Endpoints": [
+    {
+      "RemoteIP": "127.0.0.1",
+      "RemotePort": "8081",
+      "RemoteName": "Remote API 01"
+    },
+    {
+      "RemoteIP": "127.0.0.1",
+      "RemotePort": "8082",
+      "RemoteName": "Remote API 02"
+    }
+  ]
+}
